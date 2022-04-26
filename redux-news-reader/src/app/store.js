@@ -3,10 +3,11 @@ import articlePreviewsReducer from '../features/articlePreviews/articlePreviewsS
 import currentArticleReducer from '../features/currentArticle/currentArticleSlice';
 import commentsReducer from '../features/comments/commentsSlice';
 
-export default configureStore({
+const store = configureStore({
   reducer: {
     articlePreviews: articlePreviewsReducer,
     currentArticle: currentArticleReducer,
     comments: commentsReducer
   },
 });
+export default store;

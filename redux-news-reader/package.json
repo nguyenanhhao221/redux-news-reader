@@ -37,6 +37,9 @@
       "last 1 safari version"
     ]
   },
+  "msw": {
+    "workerDirectory": "public"
+  },
   "devDependencies": {
     "msw": "^0.39.2"
   }
