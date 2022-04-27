@@ -9,7 +9,7 @@ export default function CommentList({ comments }) {
     return (
         <ul className='comments-list'>
             {comments.map(comment => {
-                return <Comment comment={comment}/>
+                return <Comment comment={comment} key={comment.id}/>
             })}
         </ul>
     );
