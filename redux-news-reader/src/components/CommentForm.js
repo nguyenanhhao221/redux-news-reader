@@ -12,7 +12,6 @@ export default function CommentForm({ articleId }) {
         e.preventDefault();
         // dispatch your asynchronous action here!
         dispatch(postCommentForArticleId({ articleId, comment }))
-        if (isCreatePending) return <div>Posting Comments</div>
         setComment('');
     };
 
@@ -29,7 +28,7 @@ export default function CommentForm({ articleId }) {
                     type='text'
                 />
                 <button
-
+                    disabled={isCreatePending || !comment}
                     className='comment-button'
                 >
                     Submit
