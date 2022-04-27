@@ -12,7 +12,10 @@ const CurrentArticle = () => {
   const article = useSelector(selectCurrentArticle);
   const currentArticleIsLoading = useSelector(isLoadingCurrentArticle);
 
-  // useEffect(() => dispatch(loadCurrentArticle(article), [article, dispatch]))
+  useEffect(() => {
+    dispatch(loadCurrentArticle(1));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   if (currentArticleIsLoading) {
     return <div>Loading</div>;
