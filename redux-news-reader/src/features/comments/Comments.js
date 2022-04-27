@@ -11,21 +11,25 @@ import CommentForm from '../../components/CommentForm';
 
 const Comments = () => {
     const dispatch = useDispatch();
-    const article = useSelector(selectCurrentArticle);
+    const currentArticle = useSelector(selectCurrentArticle);
     // Declare additional selected data here.
-    const comments = [];
-    const commentsAreLoading = false;
+    const comments = useSelector(selectComments);
+    const commentsAreLoading = isLoadingComments;
 
     // Dispatch loadCommentsForArticleId with useEffect here.
+    useEffect(() => {
+        dispatch(loadCommentsForArticleId(currentArticle.id))
+    }, [currentArticle, comments, dispatch]);
+
 
     if (commentsAreLoading) return <div>Loading Comments</div>;
-    if (!article) return null;
+    if (!currentArticle) return null;
 
     return (
         <div className='comments-container'>
             <h3 className='comments-title'>Comments</h3>
-            <CommentList comments={[]} />
-            <CommentForm articleId={article.id} />
+            <CommentList comments={comments} />
+            <CommentForm articleId={currentArticle.id} />
         </div>
     );
 };
