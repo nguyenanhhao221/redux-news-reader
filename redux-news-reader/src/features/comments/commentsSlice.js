@@ -29,7 +29,7 @@ export const commentsSlice = createSlice({
             .addCase(loadCommentsForArticleId.fulfilled, (state, action) => {
                 state.isLoadingComments = false;
                 state.failedToLoadComments = false;
-                state.byArticleId = action.payload
+                state.byArticleId[action.payload.articleId] = action.payload.comments;
             })
             .addCase(loadCommentsForArticleId.rejected, (state) => {
                 state.isLoadingComments = false;

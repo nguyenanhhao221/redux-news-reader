@@ -4,7 +4,7 @@ import {
   selectCurrentArticle,
   isLoadingCurrentArticle,
   loadCurrentArticle,
-} from '../currentArticle/currentArticleSlice';
+} from './currentArticleSlice';
 import FullArticle from '../../components/FullArticle';
 
 const CurrentArticle = () => {
