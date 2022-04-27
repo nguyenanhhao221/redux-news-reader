@@ -12,7 +12,9 @@ const CurrentArticle = () => {
   const article = useSelector(selectCurrentArticle);
   const currentArticleIsLoading = useSelector(isLoadingCurrentArticle);
 
-  // useEffect(() => dispatch(loadCurrentArticle(article), [article, dispatch]))
+  useEffect(() => {
+    dispatch(loadCurrentArticle(1));
+  }, [])
 
   if (currentArticleIsLoading) {
     return <div>Loading</div>;
